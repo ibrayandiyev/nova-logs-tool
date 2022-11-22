@@ -12,6 +12,11 @@
             "name": "Georges KABBOUCHI",
             "email": "georges.kabbouchi@gmail.com",
             "role": "Developer"
+        },
+        {
+            "name": "Abe Yandiyev",
+            "email": "ibragimyandiyev5@gmail.com",
+            "role": "Contributor"
         }
     ],
     "require": {

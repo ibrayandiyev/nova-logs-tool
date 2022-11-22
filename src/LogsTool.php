@@ -31,8 +31,8 @@ class LogsTool extends BaseTool
     public function menu(Request $request)
     {
         return MenuSection::make('Logs')
-            ->path('/logs-tool')
-            ->icon('document-duplicate');
+            ->path('/logs')
+            ->icon('lightning-bolt');
     }
 
     public static function authorizedToDownload(Request $request)

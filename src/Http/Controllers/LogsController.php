@@ -40,7 +40,7 @@ class LogsController extends Controller
             });
         }
 
-        $perPage = config('nova-logs-tool.perPage');
+        $perPage = config('nova-logs.perPage');
 
         $currentPageSearchResults = $collection->slice(($currentPage - 1) * $perPage, $perPage)->values()->toArray();
 
@@ -50,7 +50,7 @@ class LogsController extends Controller
     public function dailyLogFiles()
     {
         return collect(Ward::getFiles(true))->filter(function ($file) {
-            return preg_match(config('nova-logs-tool.regexForFiles'), $file);
+            return preg_match(config('nova-logs.regexForFiles'), $file);
         })->values()->all();
     }
 
