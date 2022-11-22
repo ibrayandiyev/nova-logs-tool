@@ -7,9 +7,21 @@ use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Routing\Controller;
 use KABBOUCHI\LogsTool\LogsTool;
 use KABBOUCHI\Ward\Ward;
+use Inertia\Inertia;
 
 class LogsController extends Controller
 {
+    
+    /**
+     * Show the log viewer index.
+     *
+     * @return \Inertia\Response
+     */
+    public function __invoke()
+    {
+        return Inertia::render('Logs');
+    }
+
     public function index()
     {
         Ward::setFile($file = request()->input('file', 'laravel.log'));

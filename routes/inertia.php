@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use KABBOUCHI\LogsTool\Http\Controllers\LogsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function (Request $request) {
-    return inertia('Logs');
-});
+Route::get('/', LogsController::class);
