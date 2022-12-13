@@ -5,6 +5,7 @@ namespace KABBOUCHI\LogsTool;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use KABBOUCHI\LogsTool\Http\Middleware\Authorize;
+use Laravel\Nova\Http\Middleware\Authenticate;
 use Laravel\Nova\Events\ServingNova;
 use Laravel\Nova\Nova;
 
@@ -40,10 +41,10 @@ class LogsToolServiceProvider extends ServiceProvider
             return;
         }
 
-        Nova::router(['nova', Authorize::class], 'logs')
+        Nova::router(['nova', Authenticate::class, Authorize::class], 'logs')
             ->group(__DIR__.'/../routes/inertia.php');
 
-        Route::middleware(['nova', Authorize::class])
+        Route::middleware(['nova', Authenticate::class, Authorize::class])
             ->prefix('nova-vendor/KABBOUCHI/logs-tool')
             ->group(__DIR__.'/../routes/api.php');
     }
